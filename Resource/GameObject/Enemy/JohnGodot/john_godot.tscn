@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://lm67al3uiyjw"]
+
+[ext_resource type="PackedScene" uid="uid://cff5oj7bjqsq2" path="res://Scene/Component/enemy.tscn" id="1_l4uqd"]
+[ext_resource type="Script" uid="uid://3qpaecmyfcb8" path="res://Resource/GameObject/Enemy/JohnGodot/john_godot.gd" id="2_bdh2x"]
+
+[node name="JohnGodot" instance=ExtResource("1_l4uqd")]
+script = ExtResource("2_bdh2x")

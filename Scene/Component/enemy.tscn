@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cff5oj7bjqsq2"]
+
+[ext_resource type="Texture2D" uid="uid://c64of5c6kaclu" path="res://icon.svg" id="1_1cyxp"]
+[ext_resource type="Script" uid="uid://blorwso1mwf3h" path="res://Scene/Component/enemy.gd" id="1_cghm1"]
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_cghm1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1cyxp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-66, -59, 63, -60, 62, 67, -63, 64, -69, -47)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtBox"]
+polygon = PackedVector2Array(-66, -59, 63, -60, 62, 67, -63, 64, -69, -47)

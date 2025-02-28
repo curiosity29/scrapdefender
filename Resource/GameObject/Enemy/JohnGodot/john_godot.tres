@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://bmybnhvs1e72l"]
+
+[ext_resource type="Script" uid="uid://bt1yfm6fn7c47" path="res://Script/ResourceScript/enemy_resource.gd" id="1_5wyop"]
+[ext_resource type="PackedScene" uid="uid://lm67al3uiyjw" path="res://Resource/GameObject/Enemy/JohnGodot/john_godot.tscn" id="2_nvvlw"]
+
+[resource]
+script = ExtResource("1_5wyop")
+id = "john_godot"
+scene = ExtResource("2_nvvlw")
+enemy_name = ""
+metadata/_custom_type_script = ExtResource("1_5wyop")

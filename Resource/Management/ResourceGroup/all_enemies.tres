@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://dp5y02e7yyc54"]
+
+[ext_resource type="Script" uid="uid://cv140k4v4ivfu" path="res://addons/godot_resource_groups/resource_group.gd" id="1_6clcb"]
+
+[resource]
+script = ExtResource("1_6clcb")
+base_folder = "res://Resource/GameObject/Enemy"
+includes = Array[String](["**.tres"])
+excludes = Array[String]([])
+paths = Array[String](["res://Resource/GameObject/Enemy/JohnGodot/john_godot.tres"])
+metadata/_custom_type_script = ExtResource("1_6clcb")

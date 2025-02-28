@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://b858x4oufdsdr"]
+
+[ext_resource type="Script" uid="uid://d3hs6ttb7pli7" path="res://Scene/Main/map.gd" id="1_52pqi"]
+[ext_resource type="PackedScene" uid="uid://d1i2tipd43orc" path="res://Scene/Component/player.tscn" id="2_mc7t2"]
+[ext_resource type="PackedScene" uid="uid://dxt6i4gmivwwg" path="res://Scene/Component/base_defend.tscn" id="3_f7grq"]
+[ext_resource type="PackedScene" uid="uid://cff5oj7bjqsq2" path="res://Scene/Component/enemy.tscn" id="4_f7grq"]
+
+[node name="Map" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_52pqi")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("2_mc7t2")]
+position = Vector2(1106, 620)
+
+[node name="BaseDenfend" parent="." instance=ExtResource("3_f7grq")]
+position = Vector2(788, 449)
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="Container"]
+
+[node name="Enemy" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
+
+[node name="Enemy2" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
+
+[node name="Enemy3" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
+
+[node name="Enemy4" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
+position = Vector2(35, 226)
+
+[node name="Enemy5" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
+position = Vector2(75, 675)
+
+[node name="Enemy6" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
+position = Vector2(107, 464)
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="Control" type="Control" parent="Spawners"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -117.0
+offset_top = -98.0
+offset_right = -45.0
+offset_bottom = 1129.0
+
+[node name="Control3" type="Control" parent="Spawners"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1973.0
+offset_top = -67.0
+offset_right = 2045.0
+offset_bottom = 1160.0
+
+[node name="Control2" type="Control" parent="Spawners"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -85.0
+offset_top = -104.0
+offset_right = 1973.0
+offset_bottom = -51.0
+
+[node name="Control5" type="Control" parent="Spawners"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -66.0
+offset_top = 1129.0
+offset_right = 1992.0
+offset_bottom = 1182.0

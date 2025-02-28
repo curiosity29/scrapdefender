@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxt6i4gmivwwg"]
+
+[ext_resource type="Texture2D" uid="uid://c64of5c6kaclu" path="res://icon.svg" id="1_57p3u"]
+[ext_resource type="Script" uid="uid://c43mf3vyqfad" path="res://Scene/Component/base_defend.gd" id="1_x5fya"]
+
+[node name="BaseDenfend" type="Node2D"]
+script = ExtResource("1_x5fya")
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+texture = ExtResource("1_57p3u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-66, -59, 63, -60, 62, 67, -63, 64, -69, -47)
