@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d3hs6ttb7pli7" path="res://Scene/Main/map.gd" id="1_52pqi"]
 [ext_resource type="PackedScene" uid="uid://d1i2tipd43orc" path="res://Scene/Component/player.tscn" id="2_mc7t2"]
+[ext_resource type="PackedScene" uid="uid://bpm1jmggjrl4l" path="res://Resource/GameObject/Enemy/Walker/walker.tscn" id="3_atpxl"]
 [ext_resource type="PackedScene" uid="uid://dxt6i4gmivwwg" path="res://Scene/Component/base_defend.tscn" id="3_f7grq"]
-[ext_resource type="PackedScene" uid="uid://cff5oj7bjqsq2" path="res://Scene/Component/enemy.tscn" id="4_f7grq"]
 
 [node name="Map" type="Control"]
+y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,30 +16,33 @@ grow_vertical = 2
 script = ExtResource("1_52pqi")
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_mc7t2")]
-position = Vector2(1106, 620)
+[node name="LootContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="BaseDenfend" parent="." instance=ExtResource("3_f7grq")]
-position = Vector2(788, 449)
+position = Vector2(773, 434)
 
 [node name="Container" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="Container"]
 
-[node name="Enemy" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
+[node name="Walker" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
+position = Vector2(1481, 452)
 
-[node name="Enemy2" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
+[node name="Walker3" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
+position = Vector2(1431, 672)
 
-[node name="Enemy3" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
+[node name="Walker4" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
+position = Vector2(1140, 869)
 
-[node name="Enemy4" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
-position = Vector2(35, 226)
+[node name="Walker5" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
+position = Vector2(1289, 545)
 
-[node name="Enemy5" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
-position = Vector2(75, 675)
+[node name="Walker6" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
+position = Vector2(860, 892)
 
-[node name="Enemy6" parent="Container/Enemies" instance=ExtResource("4_f7grq")]
-position = Vector2(107, 464)
+[node name="Walker2" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
+position = Vector2(1324, 326)
 
 [node name="Spawners" type="Node2D" parent="."]
 
@@ -61,10 +65,10 @@ offset_bottom = 1160.0
 [node name="Control2" type="Control" parent="Spawners"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -85.0
-offset_top = -104.0
-offset_right = 1973.0
-offset_bottom = -51.0
+offset_left = -66.0
+offset_top = -116.0
+offset_right = 1992.0
+offset_bottom = -63.0
 
 [node name="Control5" type="Control" parent="Spawners"]
 layout_mode = 3
@@ -73,3 +77,6 @@ offset_left = -66.0
 offset_top = 1129.0
 offset_right = 1992.0
 offset_bottom = 1182.0
+
+[node name="Player" parent="." instance=ExtResource("2_mc7t2")]
+position = Vector2(1106, 620)

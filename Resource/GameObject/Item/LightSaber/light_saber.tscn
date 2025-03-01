@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dekchb4oqf007"]
+
+[ext_resource type="Script" uid="uid://dkcg048m5f3xc" path="res://Resource/GameObject/Item/LightSaber/light_saber.gd" id="1_tpv5q"]
+[ext_resource type="PackedScene" uid="uid://c5v471ipc1uc3" path="res://Scene/Base/weapon.tscn" id="1_wedcv"]
+[ext_resource type="Script" uid="uid://belbuee6empau" path="res://Script/BaseClass/damage_area.gd" id="2_jcega"]
+[ext_resource type="Material" uid="uid://eoy1xt43wqag" path="res://Resource/Shader/material/light_saber.tres" id="3_tpv5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jptdf"]
+size = Vector2(30, 96)
+
+[node name="LightSaber" instance=ExtResource("1_wedcv")]
+script = ExtResource("1_tpv5q")
+attack_speed = 5.0
+
+[node name="DamageArea" type="Area2D" parent="MovingComponent" index="0"]
+unique_name_in_owner = true
+visible = false
+collision_layer = 0
+script = ExtResource("2_jcega")
+metadata/_custom_type_script = ExtResource("2_jcega")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingComponent/DamageArea" index="0"]
+position = Vector2(-1, -48)
+shape = SubResource("RectangleShape2D_jptdf")
+
+[node name="ColorRect" type="ColorRect" parent="MovingComponent" index="1"]
+material = ExtResource("3_tpv5q")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -96.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.821673, 0, 0.160358, 1)

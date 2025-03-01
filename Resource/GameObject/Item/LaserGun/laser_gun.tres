@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://cm1g5di74w8or"]
+
+[ext_resource type="Script" uid="uid://cxndiu0yx3puc" path="res://Script/ResourceScript/item_resource.gd" id="1_6mbby"]
+[ext_resource type="Texture2D" uid="uid://x8mjhokbe0oi" path="res://Resource/Sprite/shotgun_128.png" id="1_vxgkl"]
+[ext_resource type="PackedScene" uid="uid://pr3oecyyfext" path="res://Resource/GameObject/Item/LaserGun/laser_gun.tscn" id="3_b2ykv"]
+
+[resource]
+script = ExtResource("1_6mbby")
+id = "laser_gun"
+item_name = "laser gun"
+description = "a laser gun"
+icon = ExtResource("1_vxgkl")
+scene = ExtResource("3_b2ykv")
+metadata/_custom_type_script = ExtResource("1_6mbby")

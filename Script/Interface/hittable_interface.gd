@@ -1,6 +1,14 @@
 class_name HittableInterface
 extends Object
 
+#region optional dependency
+
+var visual_helper: Node: 
+	get: return VisualHelper
+	
+
+#endregion
+
 signal start_die
 var health = 100:
 	set(value):
@@ -32,4 +40,4 @@ func free_owner():
 
 func take_damage(damage: int, _source: Node = null) -> void:
 	health -= damage
-	#VisualHelper.show_damage_indicator(str(damage), owner.global_position)
+	if visual_helper: visual_helper.show_damage_indicator(str(damage), owner.global_position)

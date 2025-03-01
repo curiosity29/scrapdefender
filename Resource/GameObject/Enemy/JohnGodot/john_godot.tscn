@@ -5,3 +5,4 @@
 
 [node name="JohnGodot" instance=ExtResource("1_l4uqd")]
 script = ExtResource("2_bdh2x")
+resource_id = "john_godot"

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyo0ylngsvaap"]
+
+[ext_resource type="PackedScene" uid="uid://du043lrs63m3t" path="res://Scene/Base/projectile.tscn" id="1_brbdh"]
+[ext_resource type="Material" uid="uid://bir20w4hr4u5m" path="res://Resource/Shader/material/laser_bullet.tres" id="2_rsnlg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rsnlg"]
+radius = 11.0
+height = 45.0
+
+[node name="LaserBullet" instance=ExtResource("1_brbdh")]
+
+[node name="DamageArea" parent="." index="0"]
+damage = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rsnlg")
+
+[node name="ColorRect" type="ColorRect" parent="." index="1"]
+material = ExtResource("2_rsnlg")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -12.0
+offset_right = 24.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.999999, 0.109832, 0.177397, 1)

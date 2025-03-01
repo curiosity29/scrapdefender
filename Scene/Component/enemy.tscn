@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://blorwso1mwf3h" path="res://Scene/Component/enemy.gd" id="1_cghm1"]
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_cghm1")

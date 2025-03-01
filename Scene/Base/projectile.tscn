@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://du043lrs63m3t"]
+[gd_scene load_steps=3 format=3 uid="uid://du043lrs63m3t"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m4x0j"]
+[ext_resource type="Script" uid="uid://belbuee6empau" path="res://Script/BaseClass/damage_area.gd" id="1_1i153"]
+[ext_resource type="Script" uid="uid://ccbta6ltvsgnd" path="res://Scene/Base/projectile.gd" id="1_hqonh"]
 
-[node name="Projectile" type="StaticBody2D"]
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_hqonh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_m4x0j")
+[node name="DamageArea" type="Area2D" parent="."]
+script = ExtResource("1_1i153")
+destroy_owner_on_hit = true
+metadata/_custom_type_script = ExtResource("1_1i153")

@@ -1,15 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1i2tipd43orc"]
+[gd_scene load_steps=11 format=3 uid="uid://d1i2tipd43orc"]
 
 [ext_resource type="Script" uid="uid://ca637g86k5w6d" path="res://Scene/Component/player.gd" id="1_den1e"]
 [ext_resource type="Texture2D" uid="uid://c64of5c6kaclu" path="res://icon.svg" id="1_op70c"]
+[ext_resource type="Script" uid="uid://ci3a5481hm0bl" path="res://Scene/Component/hand_position_handler.gd" id="2_ibsj6"]
+[ext_resource type="PackedScene" uid="uid://lfg74cwxhks3" path="res://Scene/Component/item_indicator.tscn" id="5_droek"]
+[ext_resource type="Script" uid="uid://bab0gsn4xoqmg" path="res://Scene/Component/item_bar.gd" id="5_sblu6"]
+[ext_resource type="Resource" uid="uid://cm1g5di74w8or" path="res://Resource/GameObject/Item/LaserGun/laser_gun.tres" id="6_ibsj6"]
+[ext_resource type="Resource" uid="uid://dk8m8axesdcoi" path="res://Resource/GameObject/Item/LightSaber/light_saber.tres" id="7_ibsj6"]
+[ext_resource type="PackedScene" uid="uid://cyqbyg3jnkg8e" path="res://Scene/Component/inventory_ui.tscn" id="8_sblu6"]
+[ext_resource type="Material" uid="uid://d0akuv06d2spk" path="res://Resource/Shader/material/pog_bar.tres" id="9_yfmkr"]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yfmkr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.483004, 0.862308, 0.975864, 1)
+border_blend = true
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("current_hand")]
+y_sort_enabled = true
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_den1e")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_op70c")
+current_hand = NodePath("HandPositionHandler/Right")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-66, -59, 63, -60, 62, 67, -63, 64, -69, -47)
@@ -21,3 +36,128 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 polygon = PackedVector2Array(-66, -59, 63, -60, 62, 67, -63, 64, -69, -47)
+
+[node name="HandPositionHandler" type="Node2D" parent="." node_paths=PackedStringArray("left_hand", "right_hand", "up_hand", "down_hand", "current_hand")]
+unique_name_in_owner = true
+position = Vector2(56, 17)
+script = ExtResource("2_ibsj6")
+left_hand = NodePath("Left")
+right_hand = NodePath("Right")
+up_hand = NodePath("Up")
+down_hand = NodePath("Down")
+current_hand = NodePath("Right")
+
+[node name="Left" type="Node2D" parent="HandPositionHandler"]
+position = Vector2(-112, -17)
+
+[node name="Right" type="Node2D" parent="HandPositionHandler"]
+position = Vector2(-2, -18)
+
+[node name="Up" type="Node2D" parent="HandPositionHandler"]
+position = Vector2(-56, -71)
+
+[node name="Down" type="Node2D" parent="HandPositionHandler"]
+position = Vector2(-56, 38)
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("1_op70c")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ItemBar" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_left = -912.0
+offset_top = -512.0
+offset_right = -236.0
+offset_bottom = -416.0
+script = ExtResource("5_sblu6")
+
+[node name="ItemIndicator" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+item_resource = ExtResource("6_ibsj6")
+
+[node name="ItemIndicator2" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+label_text = "2"
+item_resource = ExtResource("7_ibsj6")
+
+[node name="ItemIndicator3" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+label_text = "3"
+
+[node name="ItemIndicator4" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+label_text = "4"
+
+[node name="ItemIndicator5" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+label_text = "5"
+
+[node name="ItemIndicator6" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+label_text = "6"
+
+[node name="ItemIndicator7" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+label_text = "7"
+
+[node name="ItemIndicator8" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+label_text = "8"
+
+[node name="ItemIndicator9" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+label_text = "9"
+
+[node name="ItemIndicator10" parent="ItemBar" instance=ExtResource("5_droek")]
+layout_mode = 2
+label_text = "0"
+
+[node name="InventoryUI" parent="." instance=ExtResource("8_sblu6")]
+unique_name_in_owner = true
+position = Vector2(-915, -305)
+
+[node name="Stats" type="Node2D" parent="."]
+position = Vector2(-441, 444)
+
+[node name="Control" type="Control" parent="Stats"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 44.0
+offset_top = 19.0
+offset_right = 843.0
+offset_bottom = 59.0
+
+[node name="Label" type="Label" parent="Stats/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_yfmkr")
+
+[node name="MarginContainer" type="MarginContainer" parent="Stats/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="EnergyBar" type="ColorRect" parent="Stats/Control/MarginContainer"]
+material = ExtResource("9_yfmkr")
+layout_mode = 2
+color = Color(0.144431, 0.747954, 7.70092e-06, 1)
+
+[node name="HealthBar" type="ColorRect" parent="Stats"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(7.89344e-06, 0.914042, 0.0675965, 1)

@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=3 format=3 uid="uid://bmybnhvs1e72l"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=5 format=3 uid="uid://bmybnhvs1e72l"]
 
 [ext_resource type="Script" uid="uid://bt1yfm6fn7c47" path="res://Script/ResourceScript/enemy_resource.gd" id="1_5wyop"]
+[ext_resource type="Script" uid="uid://cxndiu0yx3puc" path="res://Script/ResourceScript/item_resource.gd" id="1_k8jeu"]
+[ext_resource type="Resource" uid="uid://c5p15kpaefwty" path="res://Resource/GameObject/Item/Scrap/scrap.tres" id="2_1noh0"]
 [ext_resource type="PackedScene" uid="uid://lm67al3uiyjw" path="res://Resource/GameObject/Enemy/JohnGodot/john_godot.tscn" id="2_nvvlw"]
 
 [resource]
@@ -8,4 +10,8 @@ script = ExtResource("1_5wyop")
 id = "john_godot"
 scene = ExtResource("2_nvvlw")
 enemy_name = ""
+drop_chance = 1.0
+loot_weights = Dictionary[ExtResource("1_k8jeu"), float]({
+ExtResource("2_1noh0"): 100.0
+})
 metadata/_custom_type_script = ExtResource("1_5wyop")

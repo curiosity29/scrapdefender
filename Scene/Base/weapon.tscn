@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5v471ipc1uc3"]
+
+[ext_resource type="Script" uid="uid://ckjfobsb3om0b" path="res://Script/BaseClass/swing_weapon.gd" id="1_e7gk6"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_e7gk6")
+
+[node name="MovingComponent" type="Node2D" parent="."]

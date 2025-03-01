@@ -1,11 +1,23 @@
-extends StaticBody2D
+class_name Projectile
+extends Node2D
+
+@export var move_speed: float = 1000.0
+var fire_direction: Vector2 = Vector2.ZERO
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func fire_self(direction: Vector2) -> void:
+	fire_direction = direction
+	rotation = direction.angle()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if fire_direction:
+		global_position += fire_direction * move_speed * delta
+	
+	check_out_of_screen()
+
+
+
+func check_out_of_screen() -> void:
+	if min(global_position.x, global_position.y) <-1000 or max(global_position.x, global_position.y) > 3000:
+		queue_free()

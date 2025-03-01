@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bekkyoyl74d17"]
+
+[ext_resource type="Script" path="res://Resource/GameObject/Item/Barricade/barricade.gd" id="1_6vyfv"]
+[ext_resource type="Texture2D" uid="uid://xvtjm4w54ojm" path="res://Resource/Sprite/fire_wall.png" id="2_3scyp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2na0"]
+size = Vector2(64, 64)
+
+[node name="Barricade" type="Node2D"]
+script = ExtResource("1_6vyfv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3scyp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_k2na0")

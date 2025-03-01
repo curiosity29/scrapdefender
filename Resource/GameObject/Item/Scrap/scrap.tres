@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://c5p15kpaefwty"]
+
+[ext_resource type="Texture2D" uid="uid://xvtjm4w54ojm" path="res://Resource/Sprite/fire_wall.png" id="1_omlav"]
+[ext_resource type="Script" uid="uid://cxndiu0yx3puc" path="res://Script/ResourceScript/item_resource.gd" id="1_xkqrq"]
+
+[resource]
+script = ExtResource("1_xkqrq")
+id = "scrap"
+item_name = "scrap"
+description = ""
+icon = ExtResource("1_omlav")
+metadata/_custom_type_script = ExtResource("1_xkqrq")

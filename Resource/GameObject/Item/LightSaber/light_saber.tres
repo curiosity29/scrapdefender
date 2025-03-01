@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://dk8m8axesdcoi"]
+
+[ext_resource type="Texture2D" uid="uid://cg5a5j7ujoqkf" path="res://Resource/Sprite/light_saber.png" id="1_0mgpm"]
+[ext_resource type="Script" uid="uid://cxndiu0yx3puc" path="res://Script/ResourceScript/item_resource.gd" id="1_ptqs5"]
+[ext_resource type="PackedScene" uid="uid://dekchb4oqf007" path="res://Resource/GameObject/Item/LightSaber/light_saber.tscn" id="3_s8u7j"]
+
+[resource]
+script = ExtResource("1_ptqs5")
+id = "light_saber"
+item_name = "light saber"
+description = "a light saber"
+icon = ExtResource("1_0mgpm")
+scene = ExtResource("3_s8u7j")
+metadata/_custom_type_script = ExtResource("1_ptqs5")

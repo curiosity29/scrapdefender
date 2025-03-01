@@ -1,0 +1,133 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyqbyg3jnkg8e"]
+
+[ext_resource type="Script" uid="uid://br831eyqry3lt" path="res://Scene/Component/inventory_ui.gd" id="1_h70ko"]
+[ext_resource type="PackedScene" uid="uid://lfg74cwxhks3" path="res://Scene/Component/item_indicator.tscn" id="2_7oyu6"]
+
+[node name="InventoryUI" type="Node2D"]
+script = ExtResource("1_h70ko")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 680.0
+offset_bottom = 400.0
+columns = 10
+
+[node name="ItemIndicator" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator2" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator3" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator4" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator5" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator6" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator7" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator8" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator9" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator10" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator11" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator12" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator13" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator14" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator15" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator16" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator17" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator18" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator19" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator20" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator21" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator22" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator23" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator24" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator25" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator26" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator27" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator28" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator29" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator30" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator31" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator32" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator33" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator34" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator35" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator36" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator37" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator38" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator39" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2
+
+[node name="ItemIndicator40" parent="GridContainer" instance=ExtResource("2_7oyu6")]
+layout_mode = 2

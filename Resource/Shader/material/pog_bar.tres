@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d0akuv06d2spk"]
+
+[sub_resource type="Shader" id="Shader_2eyji"]
+code = "shader_type canvas_item;
+
+uniform float pog_value: hint_range(0.0, 1.0, 0.1);
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	COLOR.a = 1.0 - step(pog_value, UV.x);
+	
+	
+	// Called for every pixel the material is visible on.
+}
+"
+
+[resource]
+shader = SubResource("Shader_2eyji")
+shader_parameter/pog_value = 0.5

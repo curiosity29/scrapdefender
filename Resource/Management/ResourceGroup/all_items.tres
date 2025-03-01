@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ResourceGroup" load_steps=2 format=3 uid="uid://801nftykpphx"]
+
+[ext_resource type="Script" uid="uid://cv140k4v4ivfu" path="res://addons/godot_resource_groups/resource_group.gd" id="1_rew4x"]
+
+[resource]
+script = ExtResource("1_rew4x")
+base_folder = "res://Resource/GameObject/Item"
+includes = Array[String](["**.tres"])
+excludes = Array[String]([])
+paths = Array[String](["res://Resource/GameObject/Item/LaserGun/laser_gun.tres", "res://Resource/GameObject/Item/LightSaber/light_saber.tres", "res://Resource/GameObject/Item/Scrap/scrap.tres"])
+metadata/_custom_type_script = ExtResource("1_rew4x")
