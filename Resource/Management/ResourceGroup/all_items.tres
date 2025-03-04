@@ -7,5 +7,5 @@ script = ExtResource("1_rew4x")
 base_folder = "res://Resource/GameObject/Item"
 includes = Array[String](["**.tres"])
 excludes = Array[String]([])
-paths = Array[String](["res://Resource/GameObject/Item/LaserGun/laser_gun.tres", "res://Resource/GameObject/Item/LightSaber/light_saber.tres", "res://Resource/GameObject/Item/Scrap/scrap.tres"])
+paths = Array[String](["res://Resource/GameObject/Item/Barricade/barricade.tres", "res://Resource/GameObject/Item/BladeTurret/blade_turret.tres", "res://Resource/GameObject/Item/EnergySiphoner/energy_siphon.tres", "res://Resource/GameObject/Item/GunTurret/gun_turret.tres", "res://Resource/GameObject/Item/LaserGun/laser_gun.tres", "res://Resource/GameObject/Item/LightSaber/light_saber.tres", "res://Resource/GameObject/Item/NullItem/null_item.tres", "res://Resource/GameObject/Item/Scrap/scrap.tres"])
 metadata/_custom_type_script = ExtResource("1_rew4x")

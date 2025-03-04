@@ -18,6 +18,21 @@ var cell2items: Dictionary[Vector2i, String] = {
 
 var label_string_format: String = "%s (x%d)"
 
+func check_remove(item_count: Dictionary[String, int], remove_on_success: bool = true) -> bool:
+	for item_id in item_count:
+		if item_count[item_id] > items[item_id]["count"]:
+			return false
+	if remove_on_success:
+		for item_id in item_count:
+			items[item_id]["count"] -= item_count[item_id]
+			update_cell_visual(items[item_id]["cell_id"])
+	#update_visual_all_cells()
+	return true
+func update_visual_all_cells():
+	for x in range(inventory_shape.x):
+		for y in range(inventory_shape.y):
+			update_cell_visual(Vector2i(x, y))
+	
 func add_item(id: String, count: int = 1):
 	if id in items:
 		var current_data: Dictionary = items[id]
@@ -50,7 +65,10 @@ func update_cell_visual(cell_id: Vector2i):
 	item_indicator.label.text = label_string_format % [item_id, items[item_id]["count"]]
 	item_indicator.icon.texture = item_resource.icon
 # Called when the node enters the scene tree for the first time.
+var inventory_button_group = preload("res://Resource/Misc/inventory_button_group.tres")
 func _ready() -> void:
+	for child: ItemIndicator in grid_container.get_children():
+		child.button_group = inventory_button_group
 	pass # Replace with function body.
 
 

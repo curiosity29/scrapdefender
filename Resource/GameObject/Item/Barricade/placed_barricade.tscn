@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0uq08lyekl3i"]
+
+[ext_resource type="Script" path="res://Resource/GameObject/Item/Barricade/placed_barricade.gd" id="1_dw137"]
+[ext_resource type="Texture2D" uid="uid://xvtjm4w54ojm" path="res://Resource/Sprite/fire_wall.png" id="2_jg7i7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o3u1"]
+size = Vector2(64, 64)
+
+[node name="PlacedBarricade" type="Node2D"]
+script = ExtResource("1_dw137")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jg7i7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_5o3u1")

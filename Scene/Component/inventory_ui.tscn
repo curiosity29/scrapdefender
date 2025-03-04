@@ -1,133 +1,224 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyqbyg3jnkg8e"]
+[gd_scene load_steps=33 format=3 uid="uid://cyqbyg3jnkg8e"]
 
 [ext_resource type="Script" uid="uid://br831eyqry3lt" path="res://Scene/Component/inventory_ui.gd" id="1_h70ko"]
 [ext_resource type="PackedScene" uid="uid://lfg74cwxhks3" path="res://Scene/Component/item_indicator.tscn" id="2_7oyu6"]
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_7oyu6"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1n4aq"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_cx2ut"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_vl678"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_88jjw"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_2yyif"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_hv63p"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_4tob0"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_08lit"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xyem7"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ugwv5"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_w6yiu"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xd0a5"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_466gf"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1ubfv"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_y378c"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_4qjno"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_v66pe"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_2s340"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_cwusf"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_secgv"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xixd7"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_klxw5"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_3l2n8"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5t6hn"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_nlibt"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_nsuwr"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_rrvd5"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_mm3mr"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5386v"]
+allow_unpress = true
+
 [node name="InventoryUI" type="Node2D"]
 script = ExtResource("1_h70ko")
+inventory_shape = Vector2i(10, 3)
 
 [node name="GridContainer" type="GridContainer" parent="."]
 unique_name_in_owner = true
-offset_right = 680.0
-offset_bottom = 400.0
+offset_right = 756.0
+offset_bottom = 327.0
 columns = 10
 
 [node name="ItemIndicator" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_7oyu6")
 
 [node name="ItemIndicator2" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_1n4aq")
 
 [node name="ItemIndicator3" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_cx2ut")
 
 [node name="ItemIndicator4" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_vl678")
 
 [node name="ItemIndicator5" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_88jjw")
 
 [node name="ItemIndicator6" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_2yyif")
 
 [node name="ItemIndicator7" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_hv63p")
 
 [node name="ItemIndicator8" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_4tob0")
 
 [node name="ItemIndicator9" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_08lit")
 
 [node name="ItemIndicator10" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_xyem7")
 
 [node name="ItemIndicator11" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_ugwv5")
 
 [node name="ItemIndicator12" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_w6yiu")
 
 [node name="ItemIndicator13" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_xd0a5")
 
 [node name="ItemIndicator14" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_466gf")
 
 [node name="ItemIndicator15" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_1ubfv")
 
 [node name="ItemIndicator16" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_y378c")
 
 [node name="ItemIndicator17" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_4qjno")
 
 [node name="ItemIndicator18" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_v66pe")
 
 [node name="ItemIndicator19" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_2s340")
 
 [node name="ItemIndicator20" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_cwusf")
 
 [node name="ItemIndicator21" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_secgv")
 
 [node name="ItemIndicator22" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_xixd7")
 
 [node name="ItemIndicator23" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_klxw5")
 
 [node name="ItemIndicator24" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_3l2n8")
 
 [node name="ItemIndicator25" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_5t6hn")
 
 [node name="ItemIndicator26" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_nlibt")
 
 [node name="ItemIndicator27" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_nsuwr")
 
 [node name="ItemIndicator28" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_rrvd5")
 
 [node name="ItemIndicator29" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
+button_group = SubResource("ButtonGroup_mm3mr")
 
 [node name="ItemIndicator30" parent="GridContainer" instance=ExtResource("2_7oyu6")]
 layout_mode = 2
-
-[node name="ItemIndicator31" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
-
-[node name="ItemIndicator32" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
-
-[node name="ItemIndicator33" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
-
-[node name="ItemIndicator34" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
-
-[node name="ItemIndicator35" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
-
-[node name="ItemIndicator36" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
-
-[node name="ItemIndicator37" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
-
-[node name="ItemIndicator38" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
-
-[node name="ItemIndicator39" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
-
-[node name="ItemIndicator40" parent="GridContainer" instance=ExtResource("2_7oyu6")]
-layout_mode = 2
+button_group = SubResource("ButtonGroup_5386v")

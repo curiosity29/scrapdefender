@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://botw862r6rpov"]
+
+[ext_resource type="Script" uid="uid://cxndiu0yx3puc" path="res://Script/ResourceScript/item_resource.gd" id="1_ormyw"]
+[ext_resource type="Texture2D" uid="uid://xvtjm4w54ojm" path="res://Resource/Sprite/fire_wall.png" id="1_ubp2w"]
+[ext_resource type="PackedScene" uid="uid://bekkyoyl74d17" path="res://Resource/GameObject/Item/Barricade/barricade.tscn" id="3_c8fgj"]
+
+[resource]
+script = ExtResource("1_ormyw")
+id = "barricade"
+item_name = "barricade"
+description = ""
+icon = ExtResource("1_ubp2w")
+scene = ExtResource("3_c8fgj")
+recipe = Dictionary[String, int]({
+"scrap": 3
+})
+metadata/_custom_type_script = ExtResource("1_ormyw")

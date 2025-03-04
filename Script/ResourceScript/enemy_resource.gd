@@ -7,6 +7,8 @@ extends Resource
 
 @export var enemy_name: String
 
+@export var max_health: int = 20
+
 @export var drop_chance: float = 0.6
 
 @export var loot_weights: Dictionary[ItemResource, float]

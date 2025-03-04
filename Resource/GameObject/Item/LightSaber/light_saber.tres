@@ -11,4 +11,5 @@ item_name = "light saber"
 description = "a light saber"
 icon = ExtResource("1_0mgpm")
 scene = ExtResource("3_s8u7j")
+recipe = Dictionary[String, int]({})
 metadata/_custom_type_script = ExtResource("1_ptqs5")

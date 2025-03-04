@@ -2,8 +2,15 @@
 
 [ext_resource type="Script" uid="uid://d3hs6ttb7pli7" path="res://Scene/Main/map.gd" id="1_52pqi"]
 [ext_resource type="PackedScene" uid="uid://d1i2tipd43orc" path="res://Scene/Component/player.tscn" id="2_mc7t2"]
-[ext_resource type="PackedScene" uid="uid://bpm1jmggjrl4l" path="res://Resource/GameObject/Enemy/Walker/walker.tscn" id="3_atpxl"]
 [ext_resource type="PackedScene" uid="uid://dxt6i4gmivwwg" path="res://Scene/Component/base_defend.tscn" id="3_f7grq"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f7grq"]
+vertices = PackedVector2Array(3108.47, 2000.08, -1014.91, 2035.91, -991.07, -881.328, 3257.47, -1023.64)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1001, -891, 3268, -1034, 3118, 2010, -1025, 2046)])
+parsed_collision_mask = 256
+cell_size = 5.0
+agent_radius = 32.0
 
 [node name="Map" type="Control"]
 y_sort_enabled = true
@@ -25,24 +32,6 @@ position = Vector2(773, 434)
 [node name="Container" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="Container"]
-
-[node name="Walker" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
-position = Vector2(1481, 452)
-
-[node name="Walker3" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
-position = Vector2(1431, 672)
-
-[node name="Walker4" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
-position = Vector2(1140, 869)
-
-[node name="Walker5" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
-position = Vector2(1289, 545)
-
-[node name="Walker6" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
-position = Vector2(860, 892)
-
-[node name="Walker2" parent="Container/Enemies" instance=ExtResource("3_atpxl")]
-position = Vector2(1324, 326)
 
 [node name="Spawners" type="Node2D" parent="."]
 
@@ -80,3 +69,30 @@ offset_bottom = 1182.0
 
 [node name="Player" parent="." instance=ExtResource("2_mc7t2")]
 position = Vector2(1106, 620)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+unique_name_in_owner = true
+navigation_polygon = SubResource("NavigationPolygon_f7grq")
+
+[node name="ObstacleContainer" type="Node2D" parent="NavigationRegion2D"]
+unique_name_in_owner = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="PhaseTimer" type="Timer" parent="Node2D"]
+unique_name_in_owner = true
+wait_time = 30.0
+one_shot = true
+
+[node name="MidphaseTimer" type="Timer" parent="Node2D"]
+unique_name_in_owner = true
+wait_time = 20.0
+one_shot = true
+
+[node name="CountdownTimer" type="Timer" parent="Node2D"]
+autostart = true
+
+[connection signal="child_order_changed" from="NavigationRegion2D/ObstacleContainer" to="." method="_on_obstacle_container_child_order_changed"]
+[connection signal="timeout" from="Node2D/PhaseTimer" to="." method="_on_phase_timer_timeout"]
+[connection signal="timeout" from="Node2D/MidphaseTimer" to="." method="_on_midphase_timer_timeout"]
+[connection signal="timeout" from="Node2D/CountdownTimer" to="." method="_on_countdown_timer_timeout"]

@@ -36,14 +36,22 @@ func swing(target_angle: float, clockwise: bool = true, enable_on_finish: bool =
 		
 
 func execute(use_global_position: Vector2 = get_global_mouse_position()) -> void:
+	# already in use
+	if is_using: return
+	
+	super.execute(use_global_position)
+	
+	# failed check to use
+	if not is_using: return
+	
 	var use_angle: float = rad_to_deg((use_global_position - global_position).angle()) - default_offset_angle
 	
 	#print("target angle: ", use_angle)
 	var clock_wise: bool = use_angle > swing_rotation_degree
-	var target_angle: float = use_angle + default_over_rotation_degree if clock_wise else use_angle - default_over_rotation_degree
-	if not is_using:
-		is_using = true
-		swing(target_angle, clock_wise)
+	#var target_angle: float = use_angle + default_over_rotation_degree if clock_wise else use_angle - default_over_rotation_degree
+	var target_angle: float = 360
+	swing(target_angle, clock_wise)
+		
 func _ready() -> void:
 	super()
 	swing_rotation_degree = init_hand_rotation_degree

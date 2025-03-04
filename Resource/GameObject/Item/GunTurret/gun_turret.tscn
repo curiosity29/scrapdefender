@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxjakfui4b1om"]
+
+[ext_resource type="Script" uid="uid://cvixau7ce1tle" path="res://Resource/GameObject/Item/GunTurret/gun_turret.gd" id="1_1tcjg"]
+[ext_resource type="PackedScene" uid="uid://dyo0ylngsvaap" path="res://Resource/GameObject/Item/LaserGun/laser_bullet.tscn" id="2_atspa"]
+[ext_resource type="Texture2D" uid="uid://ci7qfu7n5mrlw" path="res://Resource/Sprite/slow_enemy.png" id="3_atspa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atspa"]
+size = Vector2(64, 64)
+
+[node name="GunTurret" type="Node2D"]
+script = ExtResource("1_1tcjg")
+bullet_scene = ExtResource("2_atspa")
+
+[node name="BulletSpawnPoint" type="Node2D" parent="."]
+
+[node name="AutoFireTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_atspa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_atspa")
+
+[connection signal="timeout" from="AutoFireTimer" to="." method="_on_auto_fire_timer_timeout"]

@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ol0fp0rcqif"]
+
+[ext_resource type="Shader" uid="uid://blwpvmtx08lai" path="res://Resource/Shader/script/rgb_dna.gdshader" id="1_32get"]
+
+[resource]
+shader = ExtResource("1_32get")
+shader_parameter/strand_width = Vector2(0.2, 0.2)
+shader_parameter/travel_speed = -8.0
+shader_parameter/frequency = 20.0
+shader_parameter/amplitude = 0.3
+shader_parameter/y_speed = 1.0
+shader_parameter/color_1 = Color(1, 1, 1, 1)
+shader_parameter/color_2 = Color(0.736695, 0.92631, 1.54018e-06, 1)
+shader_parameter/color_3 = Color(0.438835, 0.936009, 0.910757, 1)
+shader_parameter/color_4 = Color(1, 0.298039, 1, 1)

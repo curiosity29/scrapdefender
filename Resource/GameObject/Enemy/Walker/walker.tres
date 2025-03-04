@@ -10,7 +10,8 @@ script = ExtResource("1_coptr")
 id = "walker"
 scene = ExtResource("2_coptr")
 enemy_name = ""
-drop_chance = 1.0
+max_health = 20
+drop_chance = 0.75
 loot_weights = Dictionary[ExtResource("1_yd4k3"), float]({
 ExtResource("2_xumc8"): 100.0
 })

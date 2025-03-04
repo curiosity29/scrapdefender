@@ -1,13 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxt6i4gmivwwg"]
+[gd_scene load_steps=4 format=3 uid="uid://dxt6i4gmivwwg"]
 
-[ext_resource type="Texture2D" uid="uid://c64of5c6kaclu" path="res://icon.svg" id="1_57p3u"]
 [ext_resource type="Script" uid="uid://c43mf3vyqfad" path="res://Scene/Component/base_defend.gd" id="1_x5fya"]
+[ext_resource type="Texture2D" uid="uid://do4t5av4b8du0" path="res://Resource/Sprite/mypc_icon.png" id="2_x5fya"]
+[ext_resource type="Material" uid="uid://dhce8pab0xvg3" path="res://Resource/Shader/material/grad_pog_bar.tres" id="3_sybh3"]
 
 [node name="BaseDenfend" type="CharacterBody2D"]
 script = ExtResource("1_x5fya")
+max_health = 200
 
-[node name="TextureRect" type="Sprite2D" parent="."]
-texture = ExtResource("1_57p3u")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_x5fya")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-66, -59, 63, -60, 62, 67, -63, 64, -69, -47)
+polygon = PackedVector2Array(-95, -77, 88, -79, 90, 84, -97, 83)
+
+[node name="Stats" type="Node2D" parent="."]
+position = Vector2(-109, -139)
+
+[node name="HealthBar" type="ColorRect" parent="Stats"]
+unique_name_in_owner = true
+material = ExtResource("3_sybh3")
+offset_right = 212.0
+offset_bottom = 40.0
+color = Color(0.941183, 0.293493, 0.207606, 1)

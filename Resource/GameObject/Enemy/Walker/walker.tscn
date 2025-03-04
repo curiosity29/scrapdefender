@@ -7,6 +7,8 @@
 [node name="Walker" instance=ExtResource("1_g56oo")]
 script = ExtResource("2_hsjfj")
 resource_id = "walker"
+speed = 80.0
+attack_range = 128.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_hsjfj")

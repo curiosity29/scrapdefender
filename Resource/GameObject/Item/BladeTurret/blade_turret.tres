@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://x63bg7uvpij4"]
+
+[ext_resource type="Texture2D" uid="uid://ctg1n8sffdvat" path="res://Resource/Sprite/spin_blade.png" id="1_fp4oc"]
+[ext_resource type="Script" uid="uid://cxndiu0yx3puc" path="res://Script/ResourceScript/item_resource.gd" id="2_1o0m8"]
+[ext_resource type="PackedScene" uid="uid://dhpxw7jswyonv" path="res://Resource/GameObject/Item/BladeTurret/blade_turret_item.tscn" id="3_fp4oc"]
+
+[resource]
+script = ExtResource("2_1o0m8")
+id = "blade_turret"
+item_name = "blade turret"
+description = ""
+icon = ExtResource("1_fp4oc")
+scene = ExtResource("3_fp4oc")
+recipe = Dictionary[String, int]({
+"scrap": 12
+})
+metadata/_custom_type_script = ExtResource("2_1o0m8")

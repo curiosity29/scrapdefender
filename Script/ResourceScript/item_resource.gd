@@ -9,3 +9,5 @@ extends Resource
 @export_group("component")
 @export var icon: Texture
 @export var scene: PackedScene
+
+@export var recipe: Dictionary[String, int]

@@ -10,6 +10,7 @@ height = 45.0
 [node name="LaserBullet" instance=ExtResource("1_brbdh")]
 
 [node name="DamageArea" parent="." index="0"]
+collision_layer = 0
 damage = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" index="0"]

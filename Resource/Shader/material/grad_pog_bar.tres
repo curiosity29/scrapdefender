@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dhce8pab0xvg3"]
+
+[ext_resource type="Shader" uid="uid://ct6sm72jlvx6k" path="res://Resource/Shader/script/grad_pog_bar.gdshader" id="1_wpos4"]
+
+[resource]
+shader = ExtResource("1_wpos4")
+shader_parameter/pog_value = 1.0
+shader_parameter/min_color = Color(1, 0, 0, 1)
+shader_parameter/max_color = Color(0, 1, 0, 1)

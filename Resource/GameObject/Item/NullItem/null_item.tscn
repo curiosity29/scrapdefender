@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ba8fgqvwkx2"]
+
+[ext_resource type="Script" uid="uid://bhulxg6p5l4wo" path="res://Resource/GameObject/Item/NullItem/null_item.gd" id="1_jdahe"]
+
+[node name="NullItem" type="Node2D"]
+script = ExtResource("1_jdahe")
+resource_id = "null_item"
+execute_energy = 0.0

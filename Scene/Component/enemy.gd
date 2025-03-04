@@ -14,14 +14,18 @@ var enemy_resource: EnemyResource
 @export var auto_flip_sprite: bool = true
 #endregion
 
+@onready var nav_agent: NavigationAgent2D = %NavigationAgent2D
 
 @onready var hitbox: Area2D = %Hitbox
 
-@export var speed = 150.0
 var hittable_interface: HittableInterface
 
 @export_group("stats")
-@export var health: int = 20
+#@export var health: int = 20
+var health: int = 20
+@export var speed = 150.0
+@export var attack_range: float = 30.
+@export var damage: int = 5
 
 @export_group("debug")
 @export var target: Node2D:
@@ -31,12 +35,21 @@ var hittable_interface: HittableInterface
 func _ready() -> void:
 	enemy_resource = Database.enemies_map[resource_id]
 	hittable_interface = HittableInterface.new(health, self)
+	health = enemy_resource.max_health
 	
 	
 func _physics_process(delta: float) -> void:
 	#region movement
 	if target:
-		var direction: Vector2 = (target.global_position - global_position).normalized()
+		nav_agent.target_position = target.global_position
+		var target_pos = nav_agent.get_next_path_position()
+		
+		if target.global_position.distance_to(global_position) < attack_range:
+			var target_hittable_interface: HittableInterface = target.get_meta("hittable_interface")
+			target_hittable_interface.take_damage(damage, self)
+			queue_free()
+		
+		var direction: Vector2 = (target_pos - global_position).normalized()
 		velocity = direction * speed
 		
 		var do_flip: bool = auto_flip_sprite and (direction.x > 0)

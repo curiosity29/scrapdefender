@@ -1,6 +1,8 @@
 class_name GunWeapon
 extends Weapon
 
+@onready var sprite_2d: Sprite2D = %Sprite2D
+
 #region optional dependency
 var bullet_parent: Node:
 	get: return Instance.map
@@ -8,6 +10,10 @@ var bullet_parent: Node:
 #endregion
 
 #region firing bullet
+
+func flip_h(do_flip: bool = true) -> void:
+	super.flip_h(do_flip)
+	sprite_2d.flip_h = do_flip
 
 @export var bullet_scene: PackedScene
 @export var fire_speed: float = 2.0;
@@ -26,13 +32,15 @@ func _ready() -> void:
 	)
 
 func execute(use_global_position: Vector2 = get_global_mouse_position()) -> void:
-	rotation = (use_global_position - global_position).angle()
+	# already in use3221
+	if is_using: return
 	
+	super.execute(use_global_position)
 	
-	if is_using:
-		return
+	# failed check to use
+	if not is_using: return
+	rotation = (use_global_position - global_position).angle() + int(is_flip_h) * PI
 	
-	super()
 	var direction: Vector2 = (use_global_position - global_position).normalized()
 	var new_bullet: Projectile = bullet_scene.instantiate()
 	bullet_parent.add_child(new_bullet)

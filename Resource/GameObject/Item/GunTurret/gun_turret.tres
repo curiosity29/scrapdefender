@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://d3psapga6girk"]
+
+[ext_resource type="Script" uid="uid://cxndiu0yx3puc" path="res://Script/ResourceScript/item_resource.gd" id="1_7kmpd"]
+[ext_resource type="Texture2D" uid="uid://ci7qfu7n5mrlw" path="res://Resource/Sprite/slow_enemy.png" id="1_14iil"]
+[ext_resource type="PackedScene" uid="uid://b1jmo4urt23b" path="res://Resource/GameObject/Item/GunTurret/gun_turret_item.tscn" id="3_0150f"]
+
+[resource]
+script = ExtResource("1_7kmpd")
+id = "gun_turret"
+item_name = "gun turret"
+description = ""
+icon = ExtResource("1_14iil")
+scene = ExtResource("3_0150f")
+recipe = Dictionary[String, int]({
+"scrap": 7
+})
+metadata/_custom_type_script = ExtResource("1_7kmpd")

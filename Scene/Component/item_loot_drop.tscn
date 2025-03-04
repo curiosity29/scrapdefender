@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://k2xjprfru863"]
 
 [ext_resource type="Script" uid="uid://dvyrlmbcrvhue" path="res://Scene/Component/item_loot_drop.gd" id="1_3q484"]
-[ext_resource type="Texture2D" uid="uid://xvtjm4w54ojm" path="res://Resource/Sprite/fire_wall.png" id="2_be2as"]
+[ext_resource type="Texture2D" uid="uid://dnh0xjet64ooi" path="res://Resource/Sprite/matrix_cell.png" id="2_be2as"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_be2as"]
 
@@ -9,7 +9,6 @@
 script = ExtResource("1_3q484")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_be2as")
 
 [node name="PickupArea" type="Area2D" parent="."]

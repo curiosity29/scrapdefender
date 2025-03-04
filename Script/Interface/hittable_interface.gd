@@ -8,7 +8,7 @@ var visual_helper: Node:
 	
 
 #endregion
-
+signal stats_changed
 signal start_die
 var health = 100:
 	set(value):
@@ -18,7 +18,7 @@ var health = 100:
 			if do_queue_free_owner_on_death:
 				start_die.emit()
 				dead_callback.call()
-	
+		stats_changed.emit()
 var max_health = 100
 var owner: CharacterBody2D
 

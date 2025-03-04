@@ -1,36 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://lfg74cwxhks3"]
+[gd_scene load_steps=4 format=3 uid="uid://lfg74cwxhks3"]
 
 [ext_resource type="Script" uid="uid://b2rtg6r2c8f0f" path="res://Scene/Component/item_indicator.gd" id="1_lsr5c"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lsr5c"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.458358, 0.917109, 0.541122, 1)
-border_blend = true
+[ext_resource type="StyleBox" uid="uid://b5o5hbnktjntp" path="res://Resource/Misc/green_style_box.tres" id="2_bw5uo"]
+[ext_resource type="StyleBox" uid="uid://co6dupiohqap0" path="res://Resource/Misc/red_style_box.tres" id="2_rwust"]
 
 [node name="ItemIndicator" type="Control"]
-custom_minimum_size = Vector2(72, 104)
+custom_minimum_size = Vector2(72, 120)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1840.0
-offset_bottom = -972.0
+offset_right = -1848.0
+offset_bottom = -960.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_lsr5c")
+default_style_box = ExtResource("2_bw5uo")
+selected_style_box = ExtResource("2_rwust")
 
-[node name="Label" type="Label" parent="."]
+[node name="StyleLabel" type="Label" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_lsr5c")
+theme_override_styles/normal = ExtResource("2_bw5uo")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -39,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
@@ -46,11 +44,12 @@ theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(72, 0)
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_alignment = 1
@@ -61,4 +60,30 @@ autowrap_mode = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
+mouse_filter = 2
 expand_mode = 1
+
+[node name="StackCountLabel" type="Label" parent="MarginContainer/VBoxContainer/Icon"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -11.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SelectButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+action_mode = 0
+flat = true
+
+[connection signal="toggled" from="SelectButton" to="." method="_on_select_button_toggled"]

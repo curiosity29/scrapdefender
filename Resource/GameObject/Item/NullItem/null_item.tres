@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://cdy0vmky3porp"]
+
+[ext_resource type="Script" uid="uid://cxndiu0yx3puc" path="res://Script/ResourceScript/item_resource.gd" id="1_dfrdd"]
+[ext_resource type="PackedScene" uid="uid://b6ba8fgqvwkx2" path="res://Resource/GameObject/Item/NullItem/null_item.tscn" id="2_6g2uw"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_rj1xw"]
+
+[resource]
+script = ExtResource("1_dfrdd")
+id = "null_item"
+item_name = "null item"
+description = ""
+icon = SubResource("ImageTexture_rj1xw")
+scene = ExtResource("2_6g2uw")
+recipe = Dictionary[String, int]({})
+metadata/_custom_type_script = ExtResource("1_dfrdd")

@@ -1,0 +1,207 @@
+[gd_scene load_steps=25 format=3 uid="uid://b7s5rc31ntenb"]
+
+[ext_resource type="Script" uid="uid://fsn4anv61fbg" path="res://Scene/Component/craft_ui.gd" id="1_2b4yp"]
+[ext_resource type="PackedScene" uid="uid://lfg74cwxhks3" path="res://Scene/Component/item_indicator.tscn" id="1_drtp1"]
+[ext_resource type="Resource" uid="uid://botw862r6rpov" path="res://Resource/GameObject/Item/Barricade/barricade.tres" id="3_4irwe"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_yklsq"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_1brkw"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_2ear2"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_yjxxw"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_hutot"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_et3gb"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_hlqc1"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_2qe4k"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_6reo7"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_ewy2v"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bvhv4"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_jg7f2"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_fhclm"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_70vwv"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_quqgg"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_b56jt"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_lmlcl"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bpvg4"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_72rn2"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_8xnrr"]
+allow_unpress = true
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_asv5w"]
+allow_unpress = true
+
+[node name="CraftUI" type="Node2D"]
+script = ExtResource("1_2b4yp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = -14.0
+offset_top = 2.0
+offset_right = 743.0
+offset_bottom = 452.0
+theme_override_constants/separation = 28
+
+[node name="IngredientComponent" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/IngredientComponent"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "crafting
+ingredients"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IngredientContainer" type="HBoxContainer" parent="VBoxContainer/IngredientComponent"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemIndicator" parent="VBoxContainer/IngredientComponent/IngredientContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_yklsq")
+
+[node name="ItemIndicator2" parent="VBoxContainer/IngredientComponent/IngredientContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_1brkw")
+
+[node name="ItemIndicator3" parent="VBoxContainer/IngredientComponent/IngredientContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_2ear2")
+
+[node name="ItemIndicator4" parent="VBoxContainer/IngredientComponent/IngredientContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_yjxxw")
+
+[node name="ItemIndicator5" parent="VBoxContainer/IngredientComponent/IngredientContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_hutot")
+
+[node name="ItemIndicator6" parent="VBoxContainer/IngredientComponent/IngredientContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_et3gb")
+
+[node name="ItemIndicator7" parent="VBoxContainer/IngredientComponent/IngredientContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_hlqc1")
+
+[node name="RecipeComponent" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/RecipeComponent"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "RECIPE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RecipeContainer" type="GridContainer" parent="VBoxContainer/RecipeComponent"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+columns = 7
+
+[node name="ItemIndicator" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_2qe4k")
+item_resource = ExtResource("3_4irwe")
+
+[node name="ItemIndicator2" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_6reo7")
+
+[node name="ItemIndicator3" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_ewy2v")
+
+[node name="ItemIndicator4" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_bvhv4")
+
+[node name="ItemIndicator5" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_jg7f2")
+
+[node name="ItemIndicator6" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_fhclm")
+
+[node name="ItemIndicator7" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_70vwv")
+
+[node name="ItemIndicator8" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_quqgg")
+
+[node name="ItemIndicator9" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_b56jt")
+
+[node name="ItemIndicator10" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_lmlcl")
+
+[node name="ItemIndicator11" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_bpvg4")
+
+[node name="ItemIndicator12" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_72rn2")
+
+[node name="ItemIndicator19" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_8xnrr")
+
+[node name="ItemIndicator20" parent="VBoxContainer/RecipeComponent/RecipeContainer" instance=ExtResource("1_drtp1")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_asv5w")
+
+[node name="CraftButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "CRAFT"
+
+[connection signal="pressed" from="VBoxContainer/CraftButton" to="." method="_on_craft_button_pressed"]

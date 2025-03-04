@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3q75sqxnu3p6"]
+
+[ext_resource type="Script" uid="uid://cftrbbyo7l5qj" path="res://Resource/GameObject/Item/BladeTurret/blade_turret.gd" id="1_io1k5"]
+[ext_resource type="Texture2D" uid="uid://ctg1n8sffdvat" path="res://Resource/Sprite/spin_blade.png" id="3_b0cyd"]
+[ext_resource type="Script" uid="uid://belbuee6empau" path="res://Script/BaseClass/damage_area.gd" id="4_3j0dn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atspa"]
+size = Vector2(90, 90)
+
+[sub_resource type="Animation" id="Animation_3j0dn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MovingBody:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_b0cyd"]
+resource_name = "main"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MovingBody:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r6vdo"]
+_data = {
+&"RESET": SubResource("Animation_3j0dn"),
+&"main": SubResource("Animation_b0cyd")
+}
+
+[node name="BladeTurret" type="Node2D"]
+script = ExtResource("1_io1k5")
+
+[node name="MovingBody" type="Node2D" parent="."]
+
+[node name="TrailPoint1" type="Node2D" parent="MovingBody"]
+unique_name_in_owner = true
+position = Vector2(34, -144)
+
+[node name="TrailPoint2" type="Node2D" parent="MovingBody"]
+unique_name_in_owner = true
+position = Vector2(-134, 33)
+
+[node name="TrailPoint3" type="Node2D" parent="MovingBody"]
+unique_name_in_owner = true
+position = Vector2(108, 132)
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingBody"]
+position = Vector2(0, -4)
+scale = Vector2(5, 5)
+texture = ExtResource("3_b0cyd")
+flip_h = true
+
+[node name="DamageArea" type="Area2D" parent="MovingBody"]
+collision_layer = 0
+script = ExtResource("4_3j0dn")
+damage = 4
+metadata/_custom_type_script = ExtResource("4_3j0dn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MovingBody/DamageArea"]
+polygon = PackedVector2Array(29, -17, 58, -84, 6.99998, -141, 13, -163, 75, -151, 123, -77, 118, -2.00002, 56, 60, 155, 137, 140, 169, -46, 130, -53, 31, -97, 11, -118, 86, -167, 72, -136, -73, -31, -69)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(17, -12)
+shape = SubResource("RectangleShape2D_atspa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_r6vdo")
+}
+autoplay = "main"

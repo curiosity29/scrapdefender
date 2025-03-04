@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1i2tipd43orc"]
+[gd_scene load_steps=9 format=3 uid="uid://d1i2tipd43orc"]
 
 [ext_resource type="Script" uid="uid://ca637g86k5w6d" path="res://Scene/Component/player.gd" id="1_den1e"]
-[ext_resource type="Texture2D" uid="uid://c64of5c6kaclu" path="res://icon.svg" id="1_op70c"]
 [ext_resource type="Script" uid="uid://ci3a5481hm0bl" path="res://Scene/Component/hand_position_handler.gd" id="2_ibsj6"]
-[ext_resource type="PackedScene" uid="uid://lfg74cwxhks3" path="res://Scene/Component/item_indicator.tscn" id="5_droek"]
-[ext_resource type="Script" uid="uid://bab0gsn4xoqmg" path="res://Scene/Component/item_bar.gd" id="5_sblu6"]
-[ext_resource type="Resource" uid="uid://cm1g5di74w8or" path="res://Resource/GameObject/Item/LaserGun/laser_gun.tres" id="6_ibsj6"]
-[ext_resource type="Resource" uid="uid://dk8m8axesdcoi" path="res://Resource/GameObject/Item/LightSaber/light_saber.tres" id="7_ibsj6"]
+[ext_resource type="Texture2D" uid="uid://ddqfqpp41jedp" path="res://Resource/Sprite/horned_godot_man.png" id="2_sblu6"]
+[ext_resource type="PackedScene" uid="uid://bo5se6anhlwlx" path="res://Scene/Component/item_bar.tscn" id="4_ibsj6"]
+[ext_resource type="PackedScene" uid="uid://b7s5rc31ntenb" path="res://Scene/Component/craft_ui.tscn" id="6_sblu6"]
 [ext_resource type="PackedScene" uid="uid://cyqbyg3jnkg8e" path="res://Scene/Component/inventory_ui.tscn" id="8_sblu6"]
 [ext_resource type="Material" uid="uid://d0akuv06d2spk" path="res://Resource/Shader/material/pog_bar.tres" id="9_yfmkr"]
 
@@ -25,6 +23,7 @@ collision_layer = 32
 collision_mask = 0
 script = ExtResource("1_den1e")
 current_hand = NodePath("HandPositionHandler/Right")
+auto_energy_consumption = 0.3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-66, -59, 63, -60, 62, 67, -63, 64, -69, -47)
@@ -37,100 +36,75 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 polygon = PackedVector2Array(-66, -59, 63, -60, 62, 67, -63, 64, -69, -47)
 
-[node name="HandPositionHandler" type="Node2D" parent="." node_paths=PackedStringArray("left_hand", "right_hand", "up_hand", "down_hand", "current_hand")]
-unique_name_in_owner = true
-position = Vector2(56, 17)
-script = ExtResource("2_ibsj6")
-left_hand = NodePath("Left")
-right_hand = NodePath("Right")
-up_hand = NodePath("Up")
-down_hand = NodePath("Down")
-current_hand = NodePath("Right")
-
-[node name="Left" type="Node2D" parent="HandPositionHandler"]
-position = Vector2(-112, -17)
-
-[node name="Right" type="Node2D" parent="HandPositionHandler"]
-position = Vector2(-2, -18)
-
-[node name="Up" type="Node2D" parent="HandPositionHandler"]
-position = Vector2(-56, -71)
-
-[node name="Down" type="Node2D" parent="HandPositionHandler"]
-position = Vector2(-56, 38)
-
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-texture = ExtResource("1_op70c")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_sblu6")
+
+[node name="HandPositionHandler" type="Node2D" parent="." node_paths=PackedStringArray("left_hand", "right_hand", "current_hand")]
+unique_name_in_owner = true
+script = ExtResource("2_ibsj6")
+left_hand = NodePath("Left")
+right_hand = NodePath("Right")
+current_hand = NodePath("Center")
+
+[node name="Left" type="Node2D" parent="HandPositionHandler"]
+
+[node name="Right" type="Node2D" parent="HandPositionHandler"]
+
+[node name="Up" type="Node2D" parent="HandPositionHandler"]
+position = Vector2(-1, -50)
+
+[node name="Down" type="Node2D" parent="HandPositionHandler"]
+position = Vector2(0, 54)
+
+[node name="Center" type="Node2D" parent="HandPositionHandler"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ItemBar" type="HBoxContainer" parent="."]
+[node name="ItemBar" parent="." instance=ExtResource("4_ibsj6")]
 unique_name_in_owner = true
-offset_left = -912.0
-offset_top = -512.0
-offset_right = -236.0
-offset_bottom = -416.0
-script = ExtResource("5_sblu6")
+offset_left = -938.0
+offset_top = -521.0
+offset_right = -182.0
+offset_bottom = -417.0
 
-[node name="ItemIndicator" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-item_resource = ExtResource("6_ibsj6")
-
-[node name="ItemIndicator2" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-label_text = "2"
-item_resource = ExtResource("7_ibsj6")
-
-[node name="ItemIndicator3" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-label_text = "3"
-
-[node name="ItemIndicator4" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-label_text = "4"
-
-[node name="ItemIndicator5" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-label_text = "5"
-
-[node name="ItemIndicator6" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-label_text = "6"
-
-[node name="ItemIndicator7" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-label_text = "7"
-
-[node name="ItemIndicator8" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-label_text = "8"
-
-[node name="ItemIndicator9" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-label_text = "9"
-
-[node name="ItemIndicator10" parent="ItemBar" instance=ExtResource("5_droek")]
-layout_mode = 2
-label_text = "0"
-
-[node name="InventoryUI" parent="." instance=ExtResource("8_sblu6")]
+[node name="InventoryComponent" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-915, -305)
+visible = false
+
+[node name="InventoryUI" parent="InventoryComponent" instance=ExtResource("8_sblu6")]
+unique_name_in_owner = true
+position = Vector2(-936, -387)
+
+[node name="CraftUI" parent="InventoryComponent" instance=ExtResource("6_sblu6")]
+unique_name_in_owner = true
+position = Vector2(-893, 7)
 
 [node name="Stats" type="Node2D" parent="."]
-position = Vector2(-441, 444)
+position = Vector2(100, 457)
 
-[node name="Control" type="Control" parent="Stats"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 44.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Stats"]
+offset_left = 251.0
 offset_top = 19.0
 offset_right = 843.0
-offset_bottom = 59.0
+offset_bottom = 64.0
+theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="Stats/Control"]
+[node name="Label" type="Label" parent="Stats/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.894118, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Energy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bar" type="Control" parent="Stats/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Stats/HBoxContainer/Bar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,7 +113,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_yfmkr")
 
-[node name="MarginContainer" type="MarginContainer" parent="Stats/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Stats/HBoxContainer/Bar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,7 +125,8 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="EnergyBar" type="ColorRect" parent="Stats/Control/MarginContainer"]
+[node name="EnergyBar" type="ColorRect" parent="Stats/HBoxContainer/Bar/MarginContainer"]
+unique_name_in_owner = true
 material = ExtResource("9_yfmkr")
 layout_mode = 2
 color = Color(0.144431, 0.747954, 7.70092e-06, 1)
@@ -161,3 +136,127 @@ visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(7.89344e-06, 0.914042, 0.0675965, 1)
+
+[node name="SurviveStats" type="Node2D" parent="."]
+position = Vector2(655, -518)
+
+[node name="SurvivalTimerLabel" type="RichTextLabel" parent="SurviveStats"]
+offset_left = 39.0
+offset_top = -18.0
+offset_right = 308.0
+offset_bottom = 96.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "SURVIVE FOR:
+3 min"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SurvivalSecondTimer" type="Timer" parent="SurviveStats"]
+autostart = true
+
+[node name="PhaseTimerLabel" type="RichTextLabel" parent="SurviveStats"]
+offset_left = 48.0
+offset_top = 113.0
+offset_right = 294.0
+offset_bottom = 257.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinLabel" type="Node2D" parent="."]
+
+[node name="WinLabel" type="RichTextLabel" parent="WinLabel"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -569.0
+offset_top = -369.0
+offset_right = 554.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.745032, 0.844092, 0.901292, 1)
+theme_override_colors/font_outline_color = Color(0.819608, 0.0901961, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 96
+bbcode_enabled = true
+text = "[wave amp=100.0 freq = 60.0 connected = 3q]YOU WIN
+ :D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinLabel2" type="RichTextLabel" parent="WinLabel"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -569.0
+offset_top = -369.0
+offset_right = 557.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.745032, 0.844092, 0.901292, 1)
+theme_override_colors/font_outline_color = Color(0.819608, 0.0901961, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 96
+bbcode_enabled = true
+text = "[wave amp=100.0 freq = 60.0 connected = 3q]YOU WIN
+ :D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseLabel" type="RichTextLabel" parent="WinLabel"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -569.0
+offset_top = -369.0
+offset_right = 556.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.745032, 0.844092, 0.901292, 1)
+theme_override_colors/font_outline_color = Color(0.819608, 0.0901961, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 96
+bbcode_enabled = true
+text = "[wave amp=100.0 freq = 60.0 connected = 3q]YOU LOSE
+ D:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoseLabel2" type="RichTextLabel" parent="WinLabel"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -569.0
+offset_top = -369.0
+offset_right = 558.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.745032, 0.844092, 0.901292, 1)
+theme_override_colors/font_outline_color = Color(0.819608, 0.0901961, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/normal_font_size = 96
+bbcode_enabled = true
+text = "[wave amp=100.0 freq = 60.0 connected = 3q]YOU LOSE
+ D:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="SurviveStats/SurvivalSecondTimer" to="." method="_on_survival_second_timer_timeout"]

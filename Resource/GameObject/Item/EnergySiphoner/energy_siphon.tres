@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=4 format=3 uid="uid://1usahwm8vcci"]
+
+[ext_resource type="Script" uid="uid://cxndiu0yx3puc" path="res://Script/ResourceScript/item_resource.gd" id="1_73qat"]
+[ext_resource type="Texture2D" uid="uid://bup3jk7iflrp5" path="res://Resource/Sprite/energy_siphon.png" id="1_w6kvs"]
+[ext_resource type="PackedScene" uid="uid://d25qaiuwifnhi" path="res://Resource/GameObject/Item/EnergySiphoner/energy_siphoner.tscn" id="3_knu72"]
+
+[resource]
+script = ExtResource("1_73qat")
+id = "energy_siphon"
+item_name = "energy siphon"
+description = ""
+icon = ExtResource("1_w6kvs")
+scene = ExtResource("3_knu72")
+recipe = Dictionary[String, int]({})
+metadata/_custom_type_script = ExtResource("1_73qat")
